@@ -5,7 +5,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using VTube.Models;
+using VTube.Core.Models;
+using VTube.Persistence;
 
 namespace VTube
 {
