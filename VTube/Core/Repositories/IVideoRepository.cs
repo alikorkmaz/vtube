@@ -1,4 +1,5 @@
-﻿using VTube.Core.Models;
+﻿using System.Collections.Generic;
+using VTube.Core.Models;
 
 namespace VTube.Core.Repositories
 {
@@ -6,5 +7,6 @@ namespace VTube.Core.Repositories
     {
         Video Get(int id);
         void Add(Video video);
+        IEnumerable<Video> GetAll();
     }
 }

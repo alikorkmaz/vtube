@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using VTube.Core;
 using VTube.Core.Models;
 using VTube.Core.ViewModels;
@@ -17,6 +14,12 @@ namespace VTube.Controllers
         public VideosController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+        }
+
+        public ActionResult Single(int id)
+        {
+            var video = _unitOfWork.Videos.Get(5);
+            return View(video);
         }
 
         [Authorize]
@@ -97,7 +100,7 @@ namespace VTube.Controllers
             video.Path = viewModel.Path;
             video.Title = viewModel.Title;
             video.UpdatedDateTime = DateTime.Now;
-            
+
             _unitOfWork.Complete();
 
             return RedirectToAction("Index", "Home");

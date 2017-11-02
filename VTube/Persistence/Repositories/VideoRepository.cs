@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using VTube.Core.Models;
 using VTube.Core.Repositories;
 
@@ -25,6 +23,11 @@ namespace VTube.Persistence.Repositories
         public void Add(Video video)
         {
             _context.Videos.Add(video);
+        }
+
+        public IEnumerable<Video> GetAll()
+        {
+            return _context.Videos.ToList();
         }
     }
 }

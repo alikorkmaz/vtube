@@ -1,12 +1,21 @@
 ﻿using System.Web.Mvc;
+using VTube.Core;
 
 namespace VTube.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public HomeController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var videos = _unitOfWork.Videos.GetAll();
+            return View(videos);
         }
 
         public ActionResult About()
