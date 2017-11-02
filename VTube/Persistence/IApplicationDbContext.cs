@@ -6,5 +6,6 @@ namespace VTube.Persistence
     public interface IApplicationDbContext
     {
         DbSet<Video> Videos { get; set; }
+        DbSet<Comment> Comments { get; set; }
     }
 }

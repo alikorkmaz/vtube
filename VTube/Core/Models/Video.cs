@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace VTube.Core.Models
 {
@@ -13,5 +15,12 @@ namespace VTube.Core.Models
         public bool IsDeleted { get; set; }
         public ApplicationUser User { get; set; }
         public string UserId { get; set; }
+
+        public ICollection<Comment> Comments { get; private set; }
+
+        public Video()
+        {
+            Comments = new Collection<Comment>();
+        }
     }
 }

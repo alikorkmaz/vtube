@@ -3,3 +3,27 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
+<ul>
+    @foreach (var video in Model)
+    {
+        <li>@video.Id</li>
+        <li>@video.Title</li>
+        <li>@video.Description</li>
+        <li>@video.CreatedDateTime</li>
+        <li>@video.Path</li>
+        <li>@video.UserId</li>
+        <li>
+            <ul>
+                @foreach (var comment in video.Comments)
+                {
+                    <li>@comment.Id</li>
+                    <li>@comment.VideoId</li>
+                    <li>@comment.Text</li>
+                    <li>@comment.CreatedDateTime</li>
+                    <li>@comment.UserId</li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

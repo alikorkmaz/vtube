@@ -3,5 +3,23 @@
 @{
     ViewBag.Title = Model.Title;
 }
-
-<h2>@Model.Title</h2>
+<ul>
+    <li>@Model.Id</li>
+    <li>@Model.Title</li>
+    <li>@Model.Description</li>
+    <li>@Model.CreatedDateTime</li>
+    <li>@Model.Path</li>
+    <li>@Model.UserId</li>
+    <li>
+        <ul>
+            @foreach (var comment in Model.Comments)
+            {
+                <li>@comment.Id</li>
+                <li>@comment.VideoId</li>
+                <li>@comment.Text</li>
+                <li>@comment.CreatedDateTime</li>
+                <li>@comment.UserId</li>
+            }
+        </ul>
+    </li>
+</ul>

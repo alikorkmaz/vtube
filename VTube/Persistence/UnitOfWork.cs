@@ -9,12 +9,14 @@ namespace VTube.Persistence
     {
         private readonly ApplicationDbContext _context;
         public IVideoRepository Videos { get; private set; }
+        public ICommentRepository Comments { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
 
             Videos = new VideoRepository(_context);
+            Comments = new CommentRepository(_context);
         }
 
         public void Complete()

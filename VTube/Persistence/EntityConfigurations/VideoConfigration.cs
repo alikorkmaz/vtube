@@ -19,6 +19,10 @@ namespace VTube.Persistence.EntityConfigurations
 
             Property(v => v.UserId)
                 .IsRequired();
+
+            HasMany(v => v.Comments)
+                .WithRequired(c => c.Video)
+                .WillCascadeOnDelete(false);
         }
     }
 }

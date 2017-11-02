@@ -18,7 +18,7 @@ namespace VTube.Controllers
 
         public ActionResult Single(int id)
         {
-            var video = _unitOfWork.Videos.Get(5);
+            var video = _unitOfWork.Videos.Get(id);
             return View(video);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using VTube.Core.Models;
 using VTube.Core.Repositories;
@@ -17,6 +18,7 @@ namespace VTube.Persistence.Repositories
         public Video Get(int id)
         {
             return _context.Videos
+                .Include(v => v.Comments)
                 .SingleOrDefault(v => v.Id == id);
         }
 
@@ -27,7 +29,9 @@ namespace VTube.Persistence.Repositories
 
         public IEnumerable<Video> GetAll()
         {
-            return _context.Videos.ToList();
+            return _context.Videos
+                .Include(v => v.Comments)
+                .ToList();
         }
     }
 }

@@ -223,9 +223,17 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Models\Comment.cs" />
     <Compile Include="Core\Models\Video.cs" />
+    <Compile Include="Core\Repositories\ICommentRepository.cs" />
     <Compile Include="Core\Repositories\IVideoRepository.cs" />
     <Compile Include="Core\ViewModels\VideoFormViewModel.cs" />
+    <Compile Include="Persistence\EntityConfigurations\CommentConfigration.cs" />
+    <Compile Include="Persistence\Migrations\201711021116347_AddComment.cs" />
+    <Compile Include="Persistence\Migrations\201711021116347_AddComment.Designer.cs">
+      <DependentUpon>201711021116347_AddComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Repositories\CommentRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -349,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201710270738065_AddVideo.resx">
       <DependentUpon>201710270738065_AddVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201711021116347_AddComment.resx">
+      <DependentUpon>201711021116347_AddComment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
